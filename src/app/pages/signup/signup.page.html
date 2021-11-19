@@ -1,0 +1,25 @@
+<ion-content>
+  <div class="container">
+    <form [formGroup]="signUpForm" (ngSubmit)="signUp(signUpForm.value)">
+      <p class="title">Welcome to Food Delivery</p>
+      <ion-item lines="none">
+        <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Choose role</ion-label>
+        <ion-select formControlName="role" interface="popover">
+          <ion-select-option value="customer">Customer</ion-select-option>
+          <ion-select-option value="shop">Delivery Shop</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="signUpForm.value.role === 'shop'" lines="none">
+        <ion-input formControlName="shop" placeholder="Shop Name"></ion-input>
+      </ion-item>
+      <ion-button class="sign-in-button" expand="block" type="submit" [disabled]="!signUpForm.valid">Sign Up</ion-button>
+      <ion-button class="sign-up-button" expand="block" [routerLink]="['/']">I already have an account</ion-button>
+    </form>
+  </div>
+</ion-content>

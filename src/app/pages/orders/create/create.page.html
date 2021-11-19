@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="start">Orders</ion-title>
+    <ion-icon slot="end" name="log-out" (click)="signOut()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="createForm"  (ngSubmit)="create(createForm.value)">
+    <p class="title">Create Order</p>
+    <ion-item lines="none">
+      <ion-input formControlName="name" placeholder="Order Name"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Choose Shop</ion-label>
+      <ion-select formControlName="shop_name" interface="popover">
+        <ion-select-option *ngFor="let shop of shops | async;" [value]="shop">{{shop.shop}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-button class="create-button" expand="block" type="submit" [disabled]="!createForm.valid">Create</ion-button>
+    <ion-button class="back-button" expand="block" [routerLink]="['/orders']">Go Back</ion-button>
+  </form>
+
+</ion-content>
+

@@ -1,0 +1,57 @@
+ion-content {
+    --background: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 300px 25px 0 25px;
+    background: url(../../../assets/images/online-food-order.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    .title {
+        margin: 10px 0;
+        color: #FEA816;
+        font-family: 'Playfair Display', serif;
+        font-size: 36px;
+        text-align: center;
+    }
+
+    ion-item {
+        margin: 10px 0;
+        --background: white;
+        --color: #FEA816;
+        --border-width: 2px;
+        --border-color: #FEA816;
+        --border-style: solid;
+        --border-radius: 90px;
+
+        ion-input {
+            font-family: 'Overpass', sans-serif;
+        }
+    }
+
+    .sign-in-button {
+        --border-radius: 90px;
+        margin: 10px 0;
+        --background: #0992A4;
+        --background-activated: #8ACBCF;
+        --color: white;
+        font-family: "Overpass", serif;
+        font-size: 18px;        
+    }
+
+    .sign-up-button {
+        --border-radius: 90px;
+        margin: 10px 0;
+        --background: rgba(254, 205, 67, 0.2);
+        --background-activated: rgba(254, 205, 67, 0.3);
+        --color: #FEA816;
+        font-family: "Overpass", serif;
+        font-size: 18px;        
+    }
+}
+

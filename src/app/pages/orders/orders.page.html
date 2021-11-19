@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="start">Orders</ion-title>
+    <ion-icon slot="end" name="log-out" (click)="signOut()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="user.role === 'shop'" class="container">
+    <h2>{{user.shop}}</h2>
+    <div *ngIf="orders.length" class="list-container">
+      <p class="list-title">Last Orders</p>
+      <ion-list lines="none">
+        <ion-item *ngFor="let order of orders;" lines="none">
+          {{order.name}} <p slot="end">{{order.price}}</p>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="no-orders" *ngIf="!orders.length">
+      No orders yet.
+    </div>
+  </div>
+  <div *ngIf="user.role === 'customer'" class="container">
+    <div style="width: 100%;"><ion-button class="create-button" expand="block" [routerLink]="['/orders/create']">Create Order</ion-button></div>
+    <div *ngIf="orders.length" class="list-container">
+      <p class="list-title">Current Orders</p>
+      <ion-list lines="none">
+        <ion-item *ngFor="let order of orders;" lines="none">
+          {{order.name}} <p slot="end">Status: {{order.status}}</p>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="no-orders" *ngIf="!orders.length">
+      No orders yet.
+    </div>
+  </div>
+  
+</ion-content>
+
